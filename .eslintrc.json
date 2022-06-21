@@ -40,6 +40,8 @@
               "tsx": "never"
             }
         ],
-        "no-console": 0
+        "no-console": 0,
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"]
     }
 }
