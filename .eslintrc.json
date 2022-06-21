@@ -1,11 +1,14 @@
 {
+    "root": true,
     "env": {
         "browser": true,
         "es2021": true
     },
     "extends": [
-        "plugin:react/recommended",
         "airbnb",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:import/typescript"
@@ -23,8 +26,10 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "quotes": ["error", "double"],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": "error",
         "import/extensions": [
             0,
             "ignorePackages",
@@ -34,6 +39,9 @@
               "ts": "never",
               "tsx": "never"
             }
-        ]
+        ],
+        "no-console": 0,
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"]
     }
 }
