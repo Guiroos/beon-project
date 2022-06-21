@@ -51,8 +51,8 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
         </tbody>
       </table>
       <ReactPaginate
-        previousLabel="Previous"
-        nextLabel="Next"
+        previousLabel="Anterior"
+        nextLabel="Próxima"
         pageCount={pageCount}
         onPageChange={changePage}
       />
