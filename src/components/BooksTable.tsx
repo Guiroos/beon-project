@@ -22,9 +22,11 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
       <table>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Pages</th>
+            <th>Livro</th>
+            <th>Autor</th>
+            <th>Idioma</th>
+            <th>Ano</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -32,7 +34,11 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
             <tr key={book.title}>
               <td>{book.title}</td>
               <td>{book.author}</td>
-              <td>{book.pages}</td>
+              <td>{book.language}</td>
+              <td>{book.year}</td>
+              <td>
+                <button type="button">Detalhes</button>
+              </td>
             </tr>
           ))}
         </tbody>
