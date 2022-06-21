@@ -3,17 +3,19 @@ import { IBook } from "../interface/IBook";
 
 interface FilterProps {
   books: IBook[];
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
   searchedBooks: IBook[];
   setSearchedBooks: Dispatch<SetStateAction<IBook[]>>;
 }
 
 const SearchBar: React.FC<FilterProps> = ({
   books,
+  search,
+  setSearch,
   searchedBooks,
   setSearchedBooks,
 }: FilterProps) => {
-  const [search, setSearch] = React.useState("");
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearch(e.target.value);

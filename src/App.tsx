@@ -7,6 +7,7 @@ import { IBook } from "./interface/IBook";
 const App: React.FC = () => {
   const [books, setBooks] = useState<IBook[] | []>([]);
   const [searchedBooks, setSearchedBooks] = useState<IBook[] | []>([]);
+  const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
@@ -38,8 +39,10 @@ const App: React.FC = () => {
           books={books}
           searchedBooks={searchedBooks}
           setSearchedBooks={setSearchedBooks}
+          search={search}
+          setSearch={setSearch}
         />
-        <BooksTable books={searchedBooks.length ? searchedBooks : books} />
+        <BooksTable books={search ? searchedBooks : books} />
       </>
     );
   };
