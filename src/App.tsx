@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import BooksTable from "./components/BooksTable";
+import SearchBar from "./components/SearchBar";
 import { IBook } from "./interface/IBook";
 
 const App: React.FC = () => {
   const [books, setBooks] = useState<IBook[] | []>([]);
+  const [searchedBooks, setSearchedBooks] = useState<IBook[] | []>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
@@ -23,12 +25,26 @@ const App: React.FC = () => {
     asyncFunc();
   }, []);
 
-  return (
-    <div className="App">
-      {loading ? <h1>Loading...</h1> : <BooksTable books={books} />}
-      {error && <h1>Error</h1>}
-    </div>
-  );
+  const renderPage = () => {
+    if (loading) {
+      return <h1>Loading...</h1>;
+    }
+    if (error) {
+      return <h1>Error</h1>;
+    }
+    return (
+      <>
+        <SearchBar
+          books={books}
+          searchedBooks={searchedBooks}
+          setSearchedBooks={setSearchedBooks}
+        />
+        <BooksTable books={searchedBooks.length ? searchedBooks : books} />
+      </>
+    );
+  };
+
+  return <div className="App">{renderPage()}</div>;
 };
 
 export default App;
