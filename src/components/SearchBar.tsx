@@ -5,23 +5,34 @@ interface FilterProps {
   books: IBook[];
   search: string;
   setSearch: Dispatch<SetStateAction<string>>;
-  searchedBooks: IBook[];
-  setSearchedBooks: Dispatch<SetStateAction<IBook[]>>;
+  setFilteredBooks: Dispatch<SetStateAction<IBook[]>>;
 }
 
 const SearchBar: React.FC<FilterProps> = ({
   books,
   search,
   setSearch,
-  searchedBooks,
-  setSearchedBooks,
+  setFilteredBooks,
 }: FilterProps) => {
+  const excludeKeys = ["year"];
+
+  const filterData = (value: string) => {
+    const lowerCaseValue = value.toLowerCase().trim();
+    if (!lowerCaseValue) {
+      setFilteredBooks(books);
+    } else {
+      const filteredBooks = books.filter((book) => Object.keys(book)
+        .some((key) => (excludeKeys.includes(key)
+          ? false
+          : book[key].toString().toLowerCase().includes(lowerCaseValue))));
+      setFilteredBooks(filteredBooks);
+    }
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearch(e.target.value);
-    const filteredBooks = books.filter((book) => book.title.toLowerCase()
-      .includes(e.target.value.toLowerCase()));
-    setSearchedBooks(filteredBooks);
+    filterData(e.target.value);
   };
 
   return (
@@ -30,13 +41,11 @@ const SearchBar: React.FC<FilterProps> = ({
         type="text"
         value={search}
         onChange={(e) => handleChange(e)}
-        placeholder="Search"
+        placeholder="Busque livros pelo título, autor ou idioma"
       />
-      {search.length > 0 ? (
-        <p>{`${searchedBooks.length} books found`}</p>
-      ) : (
-        <p>{`${books.length} books found`}</p>
-      )}
+      <button type="button" onClick={() => { setFilteredBooks(books); setSearch(""); }}>
+        Limpar
+      </button>
     </div>
   );
 };
