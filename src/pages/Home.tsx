@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import BooksTable from "../components/BooksTable";
+import Filter from "../components/Filter";
 import SearchBar from "../components/SearchBar";
 import { IBook } from "../interface/IBook";
 
 const Home: React.FC = () => {
   const [books, setBooks] = useState<IBook[] | []>([]);
-  const [searchedBooks, setSearchedBooks] = useState<IBook[] | []>([]);
+  const [filteredBooks, setFilteredBooks] = useState<IBook[] | []>([]);
   const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
       try {
         const data = await fetch("http://localhost:3001/books").then((res) => res.json());
         setBooks(data);
+        setFilteredBooks(data);
         setLoading(false);
       } catch (err) {
         setError(true);
@@ -36,12 +38,18 @@ const Home: React.FC = () => {
       <>
         <SearchBar
           books={books}
-          searchedBooks={searchedBooks}
-          setSearchedBooks={setSearchedBooks}
+          setFilteredBooks={setFilteredBooks}
           search={search}
           setSearch={setSearch}
         />
-        <BooksTable books={search ? searchedBooks : books} />
+        <Filter
+          filteredBooks={filteredBooks}
+          setFilteredBooks={setFilteredBooks}
+        />
+
+        <p>{`${filteredBooks.length} livros encontrados`}</p>
+
+        <BooksTable books={filteredBooks} />
       </>
     );
   };
