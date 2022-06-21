@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
 import { IBook } from "../interface/IBook";
 
 interface BooksTableProps {
@@ -8,6 +9,7 @@ interface BooksTableProps {
 
 const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
   const [pageNumber, setPageNumber] = useState<number>(0);
+  const navigate = useNavigate();
 
   const itemsPerPage = 10;
   const pagesVisited = pageNumber * itemsPerPage;
@@ -37,7 +39,12 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
               <td>{book.language}</td>
               <td>{book.year}</td>
               <td>
-                <button type="button">Detalhes</button>
+                <button
+                  type="button"
+                  onClick={() => navigate(`/${book.title}`)}
+                >
+                  Detalhes
+                </button>
               </td>
             </tr>
           ))}
