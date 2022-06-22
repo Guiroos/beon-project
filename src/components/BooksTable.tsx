@@ -20,10 +20,10 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
     setPageNumber(selected);
   };
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
+    <div id="book-table">
+      <table id="table">
+        <thead id="table-head">
+          <tr id="table-head-row">
             <th>Livro</th>
             <th>Autor</th>
             <th>Idioma</th>
@@ -31,7 +31,7 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
             <th>Ações</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="table-body">
           {booksToDisplay.map((book) => (
             <tr key={book.title}>
               <td>{book.title}</td>
@@ -40,6 +40,7 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
               <td>{book.year}</td>
               <td>
                 <button
+                  id="details-button"
                   type="button"
                   onClick={() => navigate(`/${book.title}`)}
                 >
@@ -50,12 +51,14 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
           ))}
         </tbody>
       </table>
-      <ReactPaginate
-        previousLabel="Anterior"
-        nextLabel="Próxima"
-        pageCount={pageCount}
-        onPageChange={changePage}
-      />
+      <div id="paginate-div">
+        <ReactPaginate
+          previousLabel="<"
+          nextLabel=">"
+          pageCount={pageCount}
+          onPageChange={changePage}
+        />
+      </div>
     </div>
   );
 };
