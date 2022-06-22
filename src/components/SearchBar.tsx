@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
 import { IBook } from "../interface/IBook";
 
 interface FilterProps {
@@ -22,17 +23,25 @@ const SearchBar: React.FC<FilterProps> = ({
     const lowerCaseValue = value.toLowerCase().trim();
     if (!lowerCaseValue) {
       setFilteredBooks(books);
-    } if (!filteredBooks) {
-      const newBook = books.filter((book) => Object.keys(book)
-        .some((key) => (excludeKeys.includes(key)
-          ? false
-          : book[key].toString().toLowerCase().includes(lowerCaseValue))));
+    }
+    if (!filteredBooks) {
+      const newBook = books.filter(
+        (book) => Object.keys(book).some(
+          (key) => (excludeKeys.includes(key)
+            ? false
+            : book[key].toString().toLowerCase().includes(lowerCaseValue)),
+        ),
+      );
       setFilteredBooks(newBook);
-    } if (filteredBooks) {
-      const newBook = filteredBooks.filter((book) => Object.keys(book)
-        .some((key) => (excludeKeys.includes(key)
-          ? false
-          : book[key].toString().toLowerCase().includes(lowerCaseValue))));
+    }
+    if (filteredBooks) {
+      const newBook = filteredBooks.filter(
+        (book) => Object.keys(book).some(
+          (key) => (excludeKeys.includes(key)
+            ? false
+            : book[key].toString().toLowerCase().includes(lowerCaseValue)),
+        ),
+      );
       setFilteredBooks(newBook);
     }
   };
@@ -44,17 +53,34 @@ const SearchBar: React.FC<FilterProps> = ({
   };
 
   return (
-    <div id="search-bar">
-      <input
-        id="search-bar-input"
-        type="text"
-        value={search}
-        onChange={(e) => handleChange(e)}
-        placeholder="Busque livros pelo título, autor ou idioma"
+    <div id="search-bar" className="flex items-center mx-48 mt-12 gap-4">
+      <img
+        src="https://www.beon.com.br/wp-content/uploads/2020/11/beon-logo-roxo.png"
+        alt="Beon logo"
+        className="h-8 md:h-12 lg:h-20"
       />
-      <button id="search-bar-button" type="button" onClick={() => { setFilteredBooks(books); setSearch(""); }}>
-        Limpar
-      </button>
+      <div className="w-full pl-2 pr-4 py-2 flex items-center border-[1px] border-gray-500 rounded-lg">
+        <AiOutlineSearch size={24} />
+        <input
+          id="search-bar-input"
+          type="text"
+          value={search}
+          onChange={(e) => handleChange(e)}
+          placeholder="Busque livros pelo título, autor ou idioma"
+          className="ml-4 mr-4 w-full outline-none"
+        />
+
+        <button
+          id="search-bar-button"
+          type="button"
+          onClick={() => {
+            setFilteredBooks(books);
+            setSearch("");
+          }}
+        >
+          Limpar
+        </button>
+      </div>
     </div>
   );
 };
