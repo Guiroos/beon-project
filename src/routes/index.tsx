@@ -8,14 +8,12 @@ import Home from "../pages/Home";
 import BookDetails from "../pages/BookDetails";
 
 const RoutesApp: React.FC = () => (
-  <div>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:title" element={<BookDetails />} />
-      </Routes>
-    </BrowserRouter>
-  </div>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:title" element={<BookDetails />} />
+    </Routes>
+  </BrowserRouter>
 );
 
 export default RoutesApp;
