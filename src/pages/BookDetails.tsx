@@ -33,19 +33,19 @@ const BookDetails: React.FC = () => {
     }
     return (
       <>
-        <h1>{book.title}</h1>
-        <p>{book.imageLink}</p>
-        <p>{`Autor: ${book.author}`}</p>
-        <p>{`Publicado em: ${book.year}`}</p>
-        <p>{`País: ${book.country}`}</p>
-        <p>{`Idioma: ${book.language}`}</p>
-        <p>{`Total de Páginas: ${book.pages}`}</p>
-        <a href={book.link} target="_blank" rel="noreferrer">Mais informações</a>
+        <h1 id="book-title">{book.title}</h1>
+        <p id="book-image">{book.imageLink}</p>
+        <p id="book-author">{`Autor: ${book.author}`}</p>
+        <p id="book-published-year">{`Publicado em: ${book.year}`}</p>
+        <p id="book-country">{`País: ${book.country}`}</p>
+        <p id="book-language">{`Idioma: ${book.language}`}</p>
+        <p id="book-total-pages">{`Total de Páginas: ${book.pages}`}</p>
+        <a id="book-link" href={book.link} target="_blank" rel="noreferrer">Mais sobre o livro</a>
       </>
     );
   };
 
-  return <div>{renderPage()}</div>;
+  return <div id={`details-page-${book.id}`}>{renderPage()}</div>;
 };
 
 export default BookDetails;

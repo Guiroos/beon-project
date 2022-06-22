@@ -5,9 +5,8 @@ export default defineConfig({
   // the e2e or component configuration
   e2e: {
     baseUrl: "http://localhost:3000",
+    chromeWebSecurity: false,
     setupNodeEvents(on, config) {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      require("@cypress/code-coverage/task")(on, config);
       // include any other plugin code...
 
       // It's IMPORTANT to return the config object
