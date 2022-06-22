@@ -47,15 +47,16 @@ const Home: React.FC = () => {
           filteredBooks={filteredBooks}
           setFilteredBooks={setFilteredBooks}
         />
-
-        <p id="search-results">{`${filteredBooks.length} livro(s) encontrado(s)`}</p>
-
         <BooksTable books={filteredBooks} />
       </>
     );
   };
 
-  return <div id="home-page" className="App">{renderPage()}</div>;
+  return (
+    <div id="home-page" className="w-screen h-screen flex flex-col">
+      {renderPage()}
+    </div>
+  );
 };
 
 export default Home;
