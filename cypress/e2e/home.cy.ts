@@ -115,17 +115,20 @@ describe("tests in search bar", () => {
     cy.get("#search-results").should("be.visible").contains("1 livro(s) encontrado(s)");
     cy.get("#table-body").find("tr").should("have.length", 1);
   });
+
   it("should search books by Fyodor Dostoevsky", () => {
     cy.get("#search-bar-input").type("Fyodor Dostoevsky");
     cy.get("#search-results").should("be.visible").contains("4 livro(s) encontrado(s)");
     cy.get("#table-body").find("tr").should("have.length", 4);
   });
+
   it("should search books in English", () => {
     cy.get("#search-bar-input").type("English");
     cy.get("#search-results").should("be.visible").contains("30 livro(s) encontrado(s)");
     cy.get("#table-body").find("tr").should("have.length", 10);
     cy.get("#paginate-div").find("ul").find("li").should("have.length", 5);
   });
+
   it("should search books in English between the years 1900 and 1950", () => {
     cy.get("#search-bar-input").type("English");
     cy.get("#initial-year").type("1900");
@@ -142,12 +145,14 @@ describe("tests in filter", () => {
     cy.visit("/");
     cy.get("#filter-bar").should("be.visible");
   });
+
   it("should filter books between the years 1000 and 2000 and no search", () => {
     cy.get("#initial-year").type("1000");
     cy.get("#final-year").type("1500");
     cy.get("#filter-button").click();
     cy.get("#search-results").should("be.visible").contains("8 livro(s) encontrado(s)");
   });
+
   it("should filter books between the years 1000 and 2000 with search", () => {
     cy.get("#initial-year").type("1000");
     cy.get("#final-year").type("1500");
