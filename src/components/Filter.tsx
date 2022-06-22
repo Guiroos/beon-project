@@ -33,13 +33,13 @@ const Filter: React.FC<FilterProps> = ({
   };
 
   return (
-    <div>
-      <label htmlFor="initialYear">
+    <div id="filter-bar">
+      <label htmlFor="initial-year">
         Filtrar ano da publicação:
         <input
           type="number"
           name="initialYear"
-          id="initialYear"
+          id="initial-year"
           min={-2000}
           max={3000}
           value={initialYear}
@@ -47,12 +47,12 @@ const Filter: React.FC<FilterProps> = ({
           onFocus={(e) => e.target.select()}
         />
       </label>
-      <label htmlFor="finalYear">
+      <label htmlFor="final-year">
         até
         <input
           type="number"
           name="finalYear"
-          id="finalYear"
+          id="final-year"
           min={-2000}
           max={3000}
           value={finalYear}
@@ -60,7 +60,7 @@ const Filter: React.FC<FilterProps> = ({
           onFocus={(e) => e.target.select()}
         />
       </label>
-      <button type="button" onClick={() => filterByYear()}>
+      <button id="filter-button" type="button" onClick={() => filterByYear()}>
         Filtrar
       </button>
     </div>

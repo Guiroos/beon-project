@@ -38,6 +38,7 @@ const Home: React.FC = () => {
       <>
         <SearchBar
           books={books}
+          filteredBooks={filteredBooks}
           setFilteredBooks={setFilteredBooks}
           search={search}
           setSearch={setSearch}
@@ -47,14 +48,14 @@ const Home: React.FC = () => {
           setFilteredBooks={setFilteredBooks}
         />
 
-        <p>{`${filteredBooks.length} livros encontrados`}</p>
+        <p id="search-results">{`${filteredBooks.length} livro(s) encontrado(s)`}</p>
 
         <BooksTable books={filteredBooks} />
       </>
     );
   };
 
-  return <div className="App">{renderPage()}</div>;
+  return <div id="home-page" className="App">{renderPage()}</div>;
 };
 
 export default Home;
