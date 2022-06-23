@@ -53,13 +53,13 @@ const SearchBar: React.FC<FilterProps> = ({
   };
 
   return (
-    <div id="search-bar" className="flex items-center mx-48 mt-12 gap-4">
+    <div id="search-bar" className="flex items-center mx-12 my-5 gap-4">
       <img
         src="https://www.beon.com.br/wp-content/uploads/2020/11/beon-logo-roxo.png"
         alt="Beon logo"
         className="h-8 md:h-12 lg:h-20"
       />
-      <div className="w-full pl-2 pr-4 py-2 flex items-center border-[1px] border-gray-500 rounded-lg">
+      <div className="w-full pl-2 pr-4 py-2 flex items-center border-2 border-gray-300 rounded-lg shadow-lg">
         <AiOutlineSearch size={24} />
         <input
           id="search-bar-input"
@@ -67,7 +67,7 @@ const SearchBar: React.FC<FilterProps> = ({
           value={search}
           onChange={(e) => handleChange(e)}
           placeholder="Busque livros pelo título, autor ou idioma"
-          className="ml-4 mr-4 w-full outline-none"
+          className="ml-4 mr-4 px-3 py-1 w-full outline-none rounded-lg"
         />
 
         <button
