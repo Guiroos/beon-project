@@ -37,7 +37,7 @@ Instale as dependências.
 
  Dentro do repositório há um arquivo db.json com todos os dados dos livros.  
  Basta iniciar o json-server no modo "watch" nesse arquivo, que ele estará 
- disponível na rota [API](localhost:3001/books).
+ disponível na rota [API](http://localhost:3001/books).
 
  OBS: porta pode ser alterada no json-server.json
 
@@ -45,7 +45,7 @@ Instale as dependências.
   json-server --watch db.json
 ```
 
-Depois iniciar o aplicativo React, disponível em [REACT](localhost:3000).
+Depois iniciar o aplicativo React, disponível em [WEB](http://localhost:3000).
 
 ```bash
   npm run start
