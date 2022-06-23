@@ -38,10 +38,10 @@ const BookDetails: React.FC = () => {
     }
     return (
       <>
-        <div className="w-full h-full flex flex-row justify-center items-center gap-28">
+        <div className="w-full h-full flex flex-row justify-center items-center gap-14">
           <div className="">
             <button
-              className="flex gap-4 py-4 items-center"
+              className="flex gap-4 py-4 items-center text-[#5B2A86] text-xl font-bold hover:text-[#8850BB] transition duration-150 ease-in-out"
               type="button"
               onClick={() => navigate("/")}
             >
@@ -49,43 +49,43 @@ const BookDetails: React.FC = () => {
               Voltar ao menu principal
             </button>
             <p
-              className="bg-[#5B2A86] py-96 px-40 border-2 border-[#5B2A86] shadow-lg rounded-lg"
+              className="bg-[#5B2A86] px-16 py-64 lg:py-80 lg:px-40 border-2 border-[#5B2A86] shadow-lg rounded-lg"
               id="book-image"
             >
               {book.imageLink}
             </p>
           </div>
-          <div className="flex flex-col shadow-lg rounded-lg p-5 text-[#d9cae6] bg-[#5B2A86]">
+          <div className="flex flex-col shadow-lg rounded-lg p-5 text-[#5B2A86] border-[1px] border-[#8850BB]">
             <p
-              className="text-6xl text-bold text-white p-3 border-b-2 border-b-[#d9cae6] "
+              className="text-3xl lg:text-5xl text-bold p-3 border-b-4 border-b-[#8850BB]"
               id="book-title"
             >
               {book.title}
             </p>
-            <p className="p-3 border-t border-t-[#d9cae6]" id="book-author">
+            <p className="p-3 border-b border-b-[#8850BB]" id="book-author">
               {`Autor: ${book.author}`}
             </p>
             <p
-              className="p-3 border-t border-t-[#d9cae6]"
+              className="p-3 border-b border-b-[#8850BB]"
               id="book-published-year"
             >
               {`Publicado em: ${book.year}`}
             </p>
-            <p className="p-3 border-t border-t-[#d9cae6]" id="book-country">
+            <p className="p-3 border-b border-b-[#8850BB]" id="book-country">
               {`País: ${book.country}`}
             </p>
-            <p className="p-3 border-t border-t-[#d9cae6]" id="book-language">
+            <p className="p-3 border-b border-b-[#8850BB]" id="book-language">
               {`Idioma: ${book.language}`}
             </p>
             <p
-              className="p-3 border-t border-t-[#d9cae6]"
+              className="p-3 border-b border-b-[#8850BB]"
               id="book-total-pages"
             >
               {`Total de Páginas: ${book.pages}`}
             </p>
             <div className="flex justify-end items-center my-4">
               <a
-                className="flex gap-4 items-center text-[#5B2A86] bg-white p-3 rounded-lg hover:text-blue-500 transition duration-150 ease-in-out"
+                className="flex gap-4 items-center text-white bg-[#5B2A86] p-3 rounded-lg hover:bg-[#8850BB] transition duration-150 ease-in-out"
                 id="book-link"
                 href={book.link}
                 target="_blank"
@@ -103,7 +103,7 @@ const BookDetails: React.FC = () => {
 
   return (
     <div
-      className="w-screen h-screen bg-slate-100"
+      className="w-screen h-screen mx-auto text-md lg:text-2xl"
       id={`details-page-${book.id}`}
     >
       {renderPage()}
