@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# Beon Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Desafio técnico enviado pela Wine, onde deverá construir uma interface para busca 
+de livros.
 
-## Available Scripts
+Os principais requisitos são: 
 
-In the project directory, you can run:
+ - Buscar livros pelo título, autor ou idioma;
+ - Listar livros (título, autor, idioma, ano);
+ - Apresentar quantidades de registros encontrados;
+ - Paginar o resultado da busca de 10 em 10 itens;
+ - Filtrar livros pelo período (ano);
+ - Visualizar detalhes do livro (apresentar todos os atributos);
 
-### `npm start`
+ 
+## Instalação
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone o repositório.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+  git clone git@github.com:Guiroos/beon-project.git
+```
 
-### `npm test`
+Instale as dependências.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+  cd beon-project
+  npm install
+```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Rodando localmente
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ Dentro da pasta raiz
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ ### Iniciando servidor
 
-### `npm run eject`
+ Dentro do repositório há um arquivo db.json com todos os dados dos livros.  
+ Basta iniciar o json-server no modo "watch" nesse arquivo, que ele estará 
+ disponível na rota [API](localhost:3001/books).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ OBS: porta pode ser alterada no json-server.json
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  json-server --watch db.json
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Depois iniciar o aplicativo React, disponível em [REACT](localhost:3000).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+  npm run start
+```
+## Stacks utilizadas
 
-## Learn More
+**Front-end:** React, TailwindCSS, TypeScript.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Documentação da API
+
+#### Retorna todos os livros
+
+```http
+  GET /books
+```
+Os livros possuem as seguintes propriedades:
+
+| Propriedades   | Tipo       
+| :---------- | :--------- 
+| `id` | `number` |
+| `author` | `string` |
+| `country` | `string` |
+| `imageLink` | `string` |
+| `link` | `string` 
+| `pages` | `number` 
+| `title` | `string` 
+| `year` | `number` 
+
+
+
+## Roadmap
+
+- [ ] Desenvolver um layout mobile;
+
+- [ ] Implementar testes  Unitários.
