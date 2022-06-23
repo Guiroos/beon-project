@@ -20,8 +20,11 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
     setPageNumber(selected);
   };
   return (
-    <div id="book-table" className="mx-52">
-      <table id="table" className="w-full relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div id="book-table" className="mx-auto">
+      <table
+        id="table"
+        className="w-full relative overflow-x-auto shadow-md sm:rounded-lg"
+      >
         <thead id="table-head" className="bg-gray-100 uppercase">
           <tr id="table-head-row" className="border-2">
             <th className="text-left px-6 py-2">Livro</th>
@@ -29,15 +32,16 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
             <th className="px-6 py-2">Idioma</th>
             <th className="px-6 py-2">Ano</th>
             <th className="px-6 py-2">
-              <p className="sr-only">
-                Ações
-              </p>
+              <p className="sr-only">Ações</p>
             </th>
           </tr>
         </thead>
         <tbody id="table-body" className="">
           {booksToDisplay.map((book) => (
-            <tr key={book.title} className="odd:bg-[#5B2A86] even:bg-[#754f96] text-center text-slate-100">
+            <tr
+              key={book.title}
+              className="odd:bg-[#5B2A86] even:bg-[#8850BB] text-center text-slate-100"
+            >
               <td className="text-left px-6 py-2 border-2">{book.title}</td>
               <td className="px-6 py-2 border-2">{book.author}</td>
               <td className="px-6 py-2 border-2">{book.language}</td>
@@ -59,7 +63,7 @@ const BooksTable: React.FC<BooksTableProps> = ({ books }: BooksTableProps) => {
       <div id="paginate-div">
         <ReactPaginate
           className="flex justify-center items-center my-5"
-          activeClassName="bg-[#5B2A86] border-white text-white p-4 font-bold"
+          activeClassName="bg-[#5B2A86] border-white text-white p-5 font-bold"
           pageClassName="p-3 m-1 border-2 rounded-lg"
           nextClassName="p-3 m-1 border-2 rounded-lg"
           previousClassName="p-3 m-1 border-2 rounded-lg"

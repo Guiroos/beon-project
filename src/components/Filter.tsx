@@ -33,7 +33,7 @@ const Filter: React.FC<FilterProps> = ({
   };
 
   return (
-    <div id="filter-bar" className="flex flex-row justify-between items-center mx-56 mb-4">
+    <div id="filter-bar" className="flex flex-row justify-between items-center mx-auto mb-4">
       <div>
         <label htmlFor="initial-year">
           Filtrar ano da publicação:
@@ -46,7 +46,7 @@ const Filter: React.FC<FilterProps> = ({
             value={initialYear}
             onChange={(e) => handleChange(e)}
             onFocus={(e) => e.target.select()}
-            className="w-fit ml-4 mr-4 text-center appearance-none border-2 border-gray-300 rounded-lg"
+            className="w-fit mx-2 text-center appearance-none border-2 border-gray-300 rounded-lg"
           />
         </label>
         <label htmlFor="final-year">
@@ -60,11 +60,11 @@ const Filter: React.FC<FilterProps> = ({
             value={finalYear}
             onChange={(e) => handleChange(e)}
             onFocus={(e) => e.target.select()}
-            className="w-fit ml-4 mr-4 text-center appearance-none border-2 border-gray-300 rounded-lg"
+            className="w-fit mx-2 text-center appearance-none border-2 border-gray-300 rounded-lg"
           />
         </label>
         <button
-          className="bg-[#5B2A86] text-white font-bold py-2 px-4 rounded-lg ml-4"
+          className="mx-3 bg-[#5B2A86] text-white text-center font-bold py-2 px-3 rounded-lg uppercase hover:bg-[#8850BB] transition duration-150 ease-in-out"
           id="filter-button"
           type="button"
           onClick={() => filterByYear()}
@@ -74,7 +74,7 @@ const Filter: React.FC<FilterProps> = ({
       </div>
       <div>
         <p
-          className="text-center font-bold"
+          className="text-center font-bold text-[#5B2A86] ml-5"
           id="search-results"
         >
           {`${filteredBooks.length} livro(s) encontrado(s)`}
